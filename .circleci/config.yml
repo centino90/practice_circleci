@@ -2,6 +2,18 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  dedicated_runner:
+    jobs:
+      - build:
+          context:
+            - practice_node
+      - test:
+          requires:
+            - build
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -28,12 +40,3 @@ jobs:
           name: "test"
           working_directory: "backend"
           command: "npm run test"
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  dedicated_runner:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
