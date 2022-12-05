@@ -1,0 +1,16 @@
+{
+  "name": "sample_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "test": "NODE_ENV=test jest ./tests/app.test.js"
+  },
+  "author": "Anthony Ansit",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.2.0",
+    "jest-cli": "^29.2.0"
+  }
+}
