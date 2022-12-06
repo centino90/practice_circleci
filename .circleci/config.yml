@@ -26,6 +26,7 @@ jobs:
       - checkout
       - node/install-packages:
           cache-path: '~/project/node_modules'
+          app-dir: backend
           override-ci-command: npm install
   test:
     executor: docker-executor
