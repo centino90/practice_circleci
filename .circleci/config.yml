@@ -14,13 +14,19 @@ workflows:
           requires:
             - build
 
+orbs:
+  node: circleci/node@5.0.3
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
-    executor: docker-executor
+    executor: node/default
     steps:
-      - build_npm
+      - checkout
+      - node/install-packages:
+          cache-path: '~/project/node_modules'
+          override-ci-command: npm install
   test:
     executor: docker-executor
     steps:
