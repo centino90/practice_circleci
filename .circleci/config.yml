@@ -68,3 +68,4 @@ executors:
   docker-executor:
     docker:
       - image: cimg/node:16.14.1
+    resource_class: medium
