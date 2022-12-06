@@ -28,6 +28,10 @@ jobs:
           cache-path: '~/project/node_modules'
           app-dir: backend
           override-ci-command: npm install
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
   test:
     executor: docker-executor
     steps:
