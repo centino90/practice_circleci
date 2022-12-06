@@ -21,7 +21,7 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
-    executor: node:16.14.1
+    executor: docker-executor
     steps:
       - checkout
       - node/install-packages:
